@@ -59,7 +59,7 @@ You can install the Follow Us Badges plugin from your WordPress Dashboard or man
 
 = Manual Installation =
 
-# Download the plugin file: `follow-us-badges.zip`
+# Download the plugin file: `wpsite-follow-us-badges.zip`
 # Unzip the file
 # Upload the`social-media-follow-box` folder to your `/wp-content/plugins` directory (do not rename the folder)
 # Activate the plugin from Plugins menu.
