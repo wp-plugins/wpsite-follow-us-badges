@@ -17,15 +17,14 @@
 					<!-- ** UPDATE THE 2 LINKS ** -->
 					<div class="top-call-to-actions">
 						<a class="tweet-about-plugin" href="https://twitter.com/intent/tweet?text=Neat%20and%20simple%20plugin%20for%20WordPress%20users.%20Check%20out%20the%20Follow%20Us%20plugin%20by%20@WPsite%20-%20&amp;url=http%3A%2F%2Fwpsite.net%2Fplugins%2F&amp;via=wpsite"><span></span><?php _e('Tweet About WPsite', self::$text_domain); ?></a>
-						<a class="leave-a-review" href="http://wordpress.org/support/view/plugin-reviews/follow-us-badges#postform" target="_blank"><span></span> <?php _e('Leave A Review', self::$text_domain); ?></a>
+						<a class="leave-a-review" href="http://wordpress.org/support/view/plugin-reviews/wpsite-follow-us-badges" target="_blank"><span></span> <?php _e('Leave A Review', self::$text_domain); ?></a>
 					</div><!-- end .top-call-to-actions -->
 				</header>
 		</div> <!-- /wpsite_plugin_header -->
-
 		
 		<div id="wpsite_plugin_content">
 		
-					<span class="pluginmessage"><?php _e('The settings below will apply to the ', self::$text_domain); ?><a href="widgets.php"><?php _e('widget', self::$text_domain); ?></a><?php _e('.', self::$text_domain); ?></span>
+			<span class="pluginmessage"><?php _e('The settings below will apply to the ', self::$text_domain); ?><a href="widgets.php"><?php _e('widget', self::$text_domain); ?></a><?php _e('.', self::$text_domain); ?></span>
 
 			<div id="wpsite_plugin_settings">
 						
@@ -180,8 +179,8 @@
 								</tbody>
 							</table>
 							
-							<p><?php _e('Reference:', self::$text_domain); ?> <a href="https://dev.twitter.com/docs/follow-button" target="_blank"><?php _e('Twitter Follow Button API Details', self::$text_domain); ?></a>
-						</div></p>
+							<p><?php _e('Reference:', self::$text_domain); ?> <a href="https://dev.twitter.com/docs/follow-button" target="_blank"><?php _e('Twitter Follow Button API Details', self::$text_domain); ?></a></p>
+						</div>
 						
 						<div id="wpsite_div_facebook">
 						
@@ -647,7 +646,7 @@
 				</div>
 -->
 
-			</div>
+			</div> <!-- wpsite_plugin_sidebar -->
 
 		</div> <!-- /wpsite_plugin_content -->
 		
