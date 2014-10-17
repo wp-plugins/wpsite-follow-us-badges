@@ -3,7 +3,7 @@
 Plugin Name: WPsite Follow Us Badges
 plugin URI:	http://www.wpsite.net/social-media-follow-us-badges
 Description: The WPsite Follow Us Badges showcases your Facebook, Twitter, Google+, LinkedIn and other social media badges.
-version: 1.4
+version: 1.4.5
 Author: WPSITE.net
 Author URI: http://wpsite.net
 License: GPL2
@@ -31,7 +31,7 @@ if (!defined('WPSITE_FOLLOW_US_PLUGIN_URL'))
 /* Plugin verison */
 
 if (!defined('WPSITE_FOLLOW_US_VERSION_NUM'))
-    define('WPSITE_FOLLOW_US_VERSION_NUM', '1.4');
+    define('WPSITE_FOLLOW_US_VERSION_NUM', '1.4.5');
 
 
 /**
@@ -66,14 +66,46 @@ add_filter("plugin_action_links_$plugin", array('WPsiteFollowUs', 'wpsite_follow
 
 class WPsiteFollowUs extends WP_Widget {
 
-	/* Properties */
-
+	/**
+	 * text_domain
+	 *
+	 * (default value: 'wpsite-follow-us-badges')
+	 *
+	 * @var string
+	 * @access private
+	 * @static
+	 */
 	private static $text_domain = 'wpsite-follow-us-badges';
 
+	/**
+	 * prefix
+	 *
+	 * (default value: 'wpsite_follow_us_')
+	 *
+	 * @var string
+	 * @access private
+	 * @static
+	 */
 	private static $prefix = 'wpsite_follow_us_';
 
+	/**
+	 * settings_page
+	 *
+	 * (default value: 'wpsite-follow-us-badges-settings')
+	 *
+	 * @var string
+	 * @access private
+	 * @static
+	 */
 	private static $settings_page = 'wpsite-follow-us-badges-settings';
 
+	/**
+	 * default
+	 *
+	 * @var mixed
+	 * @access private
+	 * @static
+	 */
 	private static $default = array(
 		'order'		=> array('twitter', 'facebook', 'google', 'linkedin', 'pinterest', 'youtube', 'tumblr'),
 		'twitter'	=> array(
@@ -155,6 +187,13 @@ class WPsiteFollowUs extends WP_Widget {
 		)
 	);
 
+	/**
+	 * twitter_supported_languages
+	 *
+	 * @var mixed
+	 * @access private
+	 * @static
+	 */
 	private static $twitter_supported_languages = array(
 		'en',
 		'fr',
@@ -165,6 +204,13 @@ class WPsiteFollowUs extends WP_Widget {
 		'ja'
 	);
 
+	/**
+	 * facebook_supported_languages
+	 *
+	 * @var mixed
+	 * @access private
+	 * @static
+	 */
 	private static $facebook_supported_languages = array(
 		'af_ZA',
 		'ar_AR',
@@ -248,6 +294,13 @@ class WPsiteFollowUs extends WP_Widget {
 		'zh_TW'
 	);
 
+	/**
+	 * google_supported_languages
+	 *
+	 * @var mixed
+	 * @access private
+	 * @static
+	 */
 	private static $google_supported_languages = array(
 		'af',
 		'am',
@@ -312,6 +365,13 @@ class WPsiteFollowUs extends WP_Widget {
 		'zu'
 	);
 
+	/**
+	 * linkedin_supported_languages
+	 *
+	 * @var mixed
+	 * @access private
+	 * @static
+	 */
 	private static $linkedin_supported_languages = array(
 		'en_US',
 		'fr_FR',
@@ -552,6 +612,7 @@ class WPsiteFollowUs extends WP_Widget {
 		jQuery(document).ready(function($) {
 			$( "#tabs" ).tabs();
 
+			// Order
 
 			$("#sortable").sortable({
 				revert: true,
@@ -566,6 +627,106 @@ class WPsiteFollowUs extends WP_Widget {
 			        $.post(ajaxurl, data, function(response) {});
 			    }
 			});
+
+			$("#wpsite_follow_us_settings_twitter_active").change(function(){
+
+				$("#twitter").hide();
+
+				if ($(this).is(":checked")) {
+					$("#twitter").show();
+				}
+			});
+
+			$("#wpsite_follow_us_settings_facebook_active").change(function(){
+
+				$("#facebook").hide();
+
+				if ($(this).is(":checked")) {
+					$("#facebook").show();
+				}
+			});
+
+			$("#wpsite_follow_us_settings_google_active").change(function(){
+
+				$("#google").hide();
+
+				if ($(this).is(":checked")) {
+					$("#google").show();
+				}
+			});
+
+			$("#wpsite_follow_us_settings_linkedin_active").change(function(){
+
+				$("#linkedin").hide();
+
+				if ($(this).is(":checked")) {
+					$("#linkedin").show();
+				}
+			});
+
+			$("#wpsite_follow_us_settings_pinterest_active").change(function(){
+
+				$("#pinterest").hide();
+
+				if ($(this).is(":checked")) {
+					$("#pinterest").show();
+				}
+			});
+
+			$("#wpsite_follow_us_settings_youtube_active").change(function(){
+
+				$("#youtube").hide();
+
+				if ($(this).is(":checked")) {
+					$("#youtube").show();
+				}
+			});
+
+			$("#wpsite_follow_us_settings_tumblr_active").change(function(){
+
+				$("#tumblr").hide();
+
+				if ($(this).is(":checked")) {
+					$("#tumblr").show();
+				}
+			});
+
+			$("#twitter").hide();
+			$("#facebook").hide();
+			$("#google").hide();
+			$("#linkedin").hide();
+			$("#pinterest").hide();
+			$("#youtube").hide();
+			$("#tumblr").hide();
+
+			if ($("#wpsite_follow_us_settings_twitter_active").is(":checked")) {
+				$("#twitter").show();
+			}
+
+			if ($("#wpsite_follow_us_settings_facebook_active").is(":checked")) {
+				$("#facebook").show();
+			}
+
+			if ($("#wpsite_follow_us_settings_google_active").is(":checked")) {
+				$("#google").show();
+			}
+
+			if ($("#wpsite_follow_us_settings_linkedin_active").is(":checked")) {
+				$("#linkedin").show();
+			}
+
+			if ($("#wpsite_follow_us_settings_pinterest_active").is(":checked")) {
+				$("#pinterest").show();
+			}
+
+			if ($("#wpsite_follow_us_settings_youtube_active").is(":checked")) {
+				$("#youtube").show();
+			}
+
+			if ($("#wpsite_follow_us_settings_tumblr_active").is(":checked")) {
+				$("#tumblr").show();
+			}
+
 		});
 		</script><?php
 
