@@ -11,12 +11,20 @@
 	.widget .youtubebox {display:block;padding:5px;}
 	.widget .tumblrbox {display:block;padding:5px;border: none !important;}
 
-.wpsite_follow_us_div .fb-like { overflow: hidden; } /* prevent text from going off page */
+.wpsite_follow_us_div .fb-like { overflow: hidden;  width: 100%;} /* prevent text from going off page */
 .wpsite_follow_us_div iframe {margin-bottom: 0;}  /* prevent Twitter row from inconsistent spacing */
 
 .wpsite_follow_us_div_link {
 	margin: 10px 0px 10px 0px;
 	width: 150px;
+}
+
+.wpsite_follow_us_div_inline {
+	display: inline-block;
+	width: auto;
+	padding: 10px;
+	margin: 0 auto;
+	max-width: 200px;
 }
 
 .wpsite_follow_us_div_link a {

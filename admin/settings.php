@@ -1,4 +1,4 @@
-<?php require_once('plugin-header.php'); ?>
+<?php require_once('header.php'); ?>
 
 	<div id="wpsite_plugin_content">
 
@@ -18,6 +18,7 @@
 						<li><a href="#wpsite_div_youtube"><span class="wpsite_admin_panel_content_tabs"><?php _e('YouTube',self::$text_domain); ?></span></a></li>
 						<li><a href="#wpsite_div_tumblr"><span class="wpsite_admin_panel_content_tabs"><?php _e('Tumblr',self::$text_domain); ?></span></a></li>
 						<li><a href="#wpsite_div_order"><span class="wpsite_admin_panel_content_tabs"><?php _e('Order',self::$text_domain); ?></span></a></li>
+						<li><a href="#wpsite_div_shortcode"><span class="wpsite_admin_panel_content_tabs"><?php _e('ShortCode',self::$text_domain); ?></span></a></li>
 					</ul>
 
 					<div id="wpsite_div_twitter">
@@ -44,7 +45,7 @@
 										<th>
 											<label><?php _e('Username', self::$text_domain); ?></label>
 											<td>
-												<input size="30" id="wpsite_follow_us_settings_twitter_user" name="wpsite_follow_us_settings_twitter_user" type="text" value="<?php echo esc_attr($settings['twitter']['user']); ?>"><br/>
+												<input class="widefat" id="wpsite_follow_us_settings_twitter_user" name="wpsite_follow_us_settings_twitter_user" type="text" value="<?php echo esc_attr($settings['twitter']['user']); ?>"><br/>
 												<em><label><?php _e('https://twitter.com/', self::$text_domain); ?></label><strong><label><?php _e('"example"', self::$text_domain); ?></label></strong></em>
 											</td>
 										</th>
@@ -111,7 +112,7 @@
 										<th>
 											<label><?php _e('Width', self::$text_domain); ?></label>
 											<td>
-												<input size="30" id="wpsite_follow_us_settings_twitter_args_width" name="wpsite_follow_us_settings_twitter_args_width" type="text" value="<?php echo esc_attr($settings['twitter']['args']['width']); ?>"><br/>
+												<input class="widefat" id="wpsite_follow_us_settings_twitter_args_width" name="wpsite_follow_us_settings_twitter_args_width" type="text" value="<?php echo esc_attr($settings['twitter']['args']['width']); ?>"><br/>
 												<em><label><?php _e('Accepts px and % (e.g 100px or 100%)', self::$text_domain); ?></label></em>
 											</td>
 										</th>
@@ -197,9 +198,23 @@
 										<th>
 											<?php _e('User ID', self::$text_domain); ?>
 											<td>
-												<input size="30" id="wpsite_follow_us_settings_facebook_user" name="wpsite_follow_us_settings_facebook_user" type="text" value="<?php echo esc_attr($settings['facebook']['user']); ?>" ><br/>
+												<input class="widefat" id="wpsite_follow_us_settings_facebook_user" name="wpsite_follow_us_settings_facebook_user" type="text" value="<?php echo esc_attr($settings['facebook']['user']); ?>" ><br/>
 												<em><label><?php _e('https://www.facebook.com/', self::$text_domain); ?></label><strong><label><?php _e('"example"', self::$text_domain); ?></label></strong></em><br/>
 												<em><label><?php _e('https://www.facebook.com/', self::$text_domain); ?></label><strong><label><?php _e('"pages/example/112233"', self::$text_domain); ?></label></strong></em>
+											</td>
+										</th>
+									</tr>
+
+									<!-- Type -->
+
+									<tr>
+										<th>
+											<?php _e('Type', self::$text_domain); ?>
+											<td>
+												<select id="wpsite_follow_us_settings_facebook_args_type" name="wpsite_follow_us_settings_facebook_args_type">
+													<option value="like" <?php echo isset($settings['facebook']['args']['type']) && $settings['facebook']['args']['type'] == 'like' ? 'selected' : '' ;?>><?php _e('Like', self::$text_domain); ?></option>
+													<option value="follow" <?php echo isset($settings['facebook']['args']['type']) && $settings['facebook']['args']['type'] == 'follow' ? 'selected' : '' ;?>><?php _e('Follow', self::$text_domain); ?></option>
+												</select>
 											</td>
 										</th>
 									</tr>
@@ -295,7 +310,7 @@
 										<th>
 											<label><?php _e('Width', self::$text_domain); ?></label>
 											<td>
-												<input size="30" id="wpsite_follow_us_settings_facebook_args_width" name="wpsite_follow_us_settings_facebook_args_width" type="text" value="<?php echo esc_attr($settings['facebook']['args']['width']); ?>"><br/>
+												<input class="widefat" size="30" id="wpsite_follow_us_settings_facebook_args_width" name="wpsite_follow_us_settings_facebook_args_width" type="text" value="<?php echo esc_attr($settings['facebook']['args']['width']); ?>"><br/>
 												<em><label><?php _e('Accepts px only', self::$text_domain); ?></label></em>
 											</td>
 										</th>
@@ -354,7 +369,7 @@
 										<th>
 											<label><?php _e('User ID', self::$text_domain); ?></label>
 											<td>
-												<input size="30" id="wpsite_follow_us_settings_google_user" name="wpsite_follow_us_settings_google_user" type="text" value="<?php echo esc_attr($settings['google']['user']); ?>"><br/>
+												<input class="widefat" id="wpsite_follow_us_settings_google_user" name="wpsite_follow_us_settings_google_user" type="text" value="<?php echo esc_attr($settings['google']['user']); ?>"><br/>
 												<em><label><?php _e('https://plus.google.com/u/0/', self::$text_domain); ?></label><strong><label><?php _e('"112233"', self::$text_domain); ?></label></strong><label><?php _e('/posts', self::$text_domain); ?></label></em><br/>
 												<em><label><?php _e('https://plus.google.com/', self::$text_domain); ?></label><strong><label><?php _e('"+112233"', self::$text_domain); ?></label></strong></em>
 											</td>
@@ -493,9 +508,11 @@
 										<label><?php _e('User ID', self::$text_domain); ?></label><br/>
 										<a href="https://developer.linkedin.com/plugins/follow-company" target="_blank"><label><?php _e('Get your ID', self::$text_domain); ?></label></a>
 										<td>
-											<input size="30" id="wpsite_follow_us_settings_linkedin_user" name="wpsite_follow_us_settings_linkedin_user" type="text" value="<?php echo esc_attr($settings['linkedin']['user']); ?>"><br/>
-											<em><label><?php _e('http://www.linkedin.com/profile/view?id=', self::$text_domain); ?></label><strong><label><?php _e('"112233"', self::$text_domain); ?></label></strong> <?php _e('applies to link only', self::$text_domain); ?></em><br/>
-											<em><label><?php _e('http://www.linkedin.com/company/', self::$text_domain); ?></label><strong><label><?php _e('"112233"', self::$text_domain); ?></label></strong></em>
+											<input class="widefat" id="wpsite_follow_us_settings_linkedin_user" name="wpsite_follow_us_settings_linkedin_user" type="text" value="<?php echo esc_attr($settings['linkedin']['user']); ?>"><br/>
+											<em class="wpsite_follow_us_settings_linkedin_args_user_type wpsite_follow_us_settings_linkedin_args_user_type_company"><label><?php _e('http://www.linkedin.com/company/', self::$text_domain); ?></label><strong><label><?php _e('"112233"', self::$text_domain); ?></label></strong></em>
+											<em class="wpsite_follow_us_settings_linkedin_args_user_type wpsite_follow_us_settings_linkedin_args_user_type_person"><label><?php _e('http://www.linkedin.com/profile/view?id=', self::$text_domain); ?></label><strong><label><?php _e('"112233"', self::$text_domain); ?></label></strong></em>
+											<em class="wpsite_follow_us_settings_linkedin_args_user_type wpsite_follow_us_settings_linkedin_args_user_type_group"><label><?php _e('https://www.linkedin.com/groups?gid=', self::$text_domain); ?></label><strong><label><?php _e('"154024"', self::$text_domain); ?></label></strong></em>
+											<em class="wpsite_follow_us_settings_linkedin_args_user_type wpsite_follow_us_settings_linkedin_args_user_type_university"><label><?php _e('https://www.linkedin.com/edu/school?id=', self::$text_domain); ?></label><strong><label><?php _e('"18483"', self::$text_domain); ?></label></strong></em>
 										</td>
 									</th>
 								</tr>
@@ -517,6 +534,8 @@
 											<input id="wpsite_follow_us_settings_linkedin_args_link" name="wpsite_follow_us_settings_linkedin_args_link" type="checkbox" <?php echo isset($settings['linkedin']['args']['link']) && $settings['linkedin']['args']['link'] ? 'checked="checked"' : ''; ?>> <?php _e('for a', self::$text_domain); ?> <select id="wpsite_follow_us_settings_linkedin_args_type" name="wpsite_follow_us_settings_linkedin_args_type">
 												<option value="company" <?php echo isset($settings['linkedin']['args']['type']) && $settings['linkedin']['args']['type'] == 'company' ? 'selected' : ''; ?>><?php _e('company', self::$text_domain); ?></option>
 												<option value="person" <?php echo isset($settings['linkedin']['args']['type']) && $settings['linkedin']['args']['type'] == 'person' ? 'selected' : ''; ?>><?php _e('person', self::$text_domain); ?></option>
+												<option value="group" <?php echo isset($settings['linkedin']['args']['type']) && $settings['linkedin']['args']['type'] == 'group' ? 'selected' : ''; ?>><?php _e('group', self::$text_domain); ?></option>
+												<option value="university" <?php echo isset($settings['linkedin']['args']['type']) && $settings['linkedin']['args']['type'] == 'university' ? 'selected' : ''; ?>><?php _e('university', self::$text_domain); ?></option>
 											</select> <?php _e('account', self::$text_domain); ?>
 										</td>
 									</th>
@@ -590,7 +609,7 @@
 									<th>
 										<label><?php _e('User URL', self::$text_domain); ?></label><br/>
 										<td>
-											<input size="30" id="wpsite_follow_us_settings_pinterest_user" name="wpsite_follow_us_settings_pinterest_user" type="url" value="<?php echo esc_url($settings['pinterest']['user']); ?>">
+											<input class="widefat" id="wpsite_follow_us_settings_pinterest_user" name="wpsite_follow_us_settings_pinterest_user" type="url" value="<?php echo esc_url($settings['pinterest']['user']); ?>">
 										</td>
 									</th>
 								</tr>
@@ -601,7 +620,7 @@
 									<th>
 										<label><?php _e('Name', self::$text_domain); ?></label><br/>
 										<td>
-											<input size="30" id="wpsite_follow_us_settings_pinterest_args_name" name="wpsite_follow_us_settings_pinterest_args_name" type="text" value="<?php echo esc_attr($settings['pinterest']['args']['name']); ?>">
+											<input class="widefat" id="wpsite_follow_us_settings_pinterest_args_name" name="wpsite_follow_us_settings_pinterest_args_name" type="text" value="<?php echo esc_attr($settings['pinterest']['args']['name']); ?>">
 										</td>
 									</th>
 								</tr>
@@ -647,7 +666,7 @@
 									<th>
 										<label><?php _e('Channel ID', self::$text_domain); ?></label><br/>
 										<td>
-											<input size="30" id="wpsite_follow_us_settings_youtube_user" name="wpsite_follow_us_settings_youtube_user" type="text" value="<?php echo esc_attr($settings['youtube']['user']); ?>"><br/>
+											<input class="widefat" id="wpsite_follow_us_settings_youtube_user" name="wpsite_follow_us_settings_youtube_user" type="text" value="<?php echo esc_attr($settings['youtube']['user']); ?>"><br/>
 											<em><?php _e('Find your ID', self::$text_domain); ?></em> <a target="_blank" href="https://www.youtube.com/account_advanced"><?php _e('here', self::$text_domain); ?></a>
 										</td>
 									</th>
@@ -736,13 +755,13 @@
 									</th>
 								</tr>
 
-								<!-- Channel ID -->
+								<!-- User Name -->
 
 								<tr>
 									<th>
 										<label><?php _e('User Name', self::$text_domain); ?></label><br/>
 										<td>
-											<input size="30" id="wpsite_follow_us_settings_tumblr_user" name="wpsite_follow_us_settings_tumblr_user" type="text" value="<?php echo esc_attr($settings['tumblr']['user']); ?>"><br/>
+											<input class="widefat" id="wpsite_follow_us_settings_tumblr_user" name="wpsite_follow_us_settings_tumblr_user" type="text" value="<?php echo esc_attr($settings['tumblr']['user']); ?>"><br/>
 											<em><?php _e('http://', self::$text_domain); ?></em><strong><?php _e('staff', self::$text_domain); ?></strong><em><?php _e('.tumblr.com', self::$text_domain); ?></em>
 										</td>
 									</th>
@@ -828,6 +847,22 @@
 						</table>
 					</div>
 
+					<div id="wpsite_div_shortcode" class="metabox-holder">
+
+						<div class="postbox">
+							<h3><?php _e('Examples', self::$text_domain); ?></h3>
+							<div class="inside">
+								<ol>
+									<li><?php _e('[wpsite_follow_us_badges twitter="WPsite"]', self::$text_domain); ?></li>
+									<li><?php _e('&lt;?php do_shortcode(\'[wpsite_follow_us_badges twitter="WPsite"]\'); ?&gt;', self::$text_domain); ?></li>
+									<li><?php _e('[wpsite_follow_us_badges title="Follow Us" twitter="WPsite" facebook="WPsite" order="facebook,twitter" twitter_followers_count_display=false twitter_link=true]', self::$text_domain); ?></li>
+								</ol>
+
+								<p><?php _e('Go to', self::$text_domain); ?> <a href="https://github.com/kjbenk/wpsite-follow-us-badges#shortcode-parameters" target="_blank">Github</a> <?php _e('page for full parameter list.', self::$text_domain); ?></p>
+							</div>
+						</div>
+					</div>
+
 				</div>
 
 				<?php wp_nonce_field('wpsite_follow_us_admin_settings'); ?>
@@ -838,7 +873,7 @@
 
 		</div>  <!-- /wpsite_plugin_settings -->
 
-	<?php require_once('plugin-sidebar.php'); ?>
+	<?php require_once('sidebar.php'); ?>
 
 	</div> <!-- /wpsite_plugin_content -->
-<?php require_once('plugin-footer.php'); ?>
+<?php require_once('footer.php'); ?>
