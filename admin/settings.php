@@ -18,6 +18,7 @@
 						<li><a href="#wpsite_div_youtube"><span class="wpsite_admin_panel_content_tabs"><?php _e('YouTube',self::$text_domain); ?></span></a></li>
 						<li><a href="#wpsite_div_tumblr"><span class="wpsite_admin_panel_content_tabs"><?php _e('Tumblr',self::$text_domain); ?></span></a></li>
 						<li><a href="#wpsite_div_order"><span class="wpsite_admin_panel_content_tabs"><?php _e('Order',self::$text_domain); ?></span></a></li>
+						<li><a href="#wpsite_div_shortcode"><span class="wpsite_admin_panel_content_tabs"><?php _e('ShortCode',self::$text_domain); ?></span></a></li>
 					</ul>
 
 					<div id="wpsite_div_twitter">
@@ -844,6 +845,22 @@
 
 							</tbody>
 						</table>
+					</div>
+
+					<div id="wpsite_div_shortcode" class="metabox-holder">
+
+						<div class="postbox">
+							<h3><?php _e('Examples', self::$text_domain); ?></h3>
+							<div class="inside">
+								<ol>
+									<li><?php _e('[wpsite_follow_us_badges twitter="WPsite"]', self::$text_domain); ?></li>
+									<li><?php _e('&lt;?php do_shortcode(\'[wpsite_follow_us_badges twitter="WPsite"]\'); ?&gt;', self::$text_domain); ?></li>
+									<li><?php _e('[wpsite_follow_us_badges title="Follow Us" twitter="WPsite" facebook="WPsite" order="facebook,twitter" twitter_followers_count_display=false twitter_link=true]', self::$text_domain); ?></li>
+								</ol>
+
+								<p><?php _e('Go to', self::$text_domain); ?> <a href="https://github.com/kjbenk/wpsite-follow-us-badges#shortcode-parameters" target="_blank">Github</a> <?php _e('page for full parameter list.', self::$text_domain); ?></p>
+							</div>
+						</div>
 					</div>
 
 				</div>
